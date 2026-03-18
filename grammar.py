@@ -64,6 +64,29 @@ print(end)  # [2 , 4]
 
 
 
+from functools import reduce
+# 找最大值
+max_num = reduce(lambda x, y: x if x > y else y, [3, 7, 2, 9, 1])
+# 结果: 9
+
+
+
+# 同时获取索引和值
+fruits = ['apple', 'banana', 'orange']
+for i, fruit in enumerate(fruits):
+    print(f"{i}: {fruit}")
+
+
+
+# 去除指定字符
+text2 = "***hello***"
+print(text2.strip('*'))  # "hello"
+
+
+
+"--------------------------------------------------------------------------------------"
+
+
 s = "A man, a plan, a canal: Panama"
 # lis = list(s.split(','))  # 只能按逗号的位置分割
 ls = list(s.strip())  # 不行
