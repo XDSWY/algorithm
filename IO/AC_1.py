@@ -6,6 +6,7 @@ lower = []
 upper = []
 
 lst = list(s.strip())
+
 for i in range(len(lst)):
     if lst[i].isdigit():
         digit.append((lst[i]))
