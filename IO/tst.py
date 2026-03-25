@@ -1,7 +1,6 @@
-# 敌方上策兵力
-front = list(map(int, input().split()))
+import math
 
-new_front = front
-for i in range(len(front)):
-    new_front[i] = int(front[i] / 3)
-print(new_front)
+a = 4
+b = 16
+
+print(math.lcm(a, b))
