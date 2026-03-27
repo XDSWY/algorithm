@@ -1,40 +1,29 @@
-Pascal = list(map(str,input().strip()))
-print(Pascal)
+s = input().strip()
+a, b, c = 0, 0, 0
 
-lst = [0,0,0]
+statements = s.split(';')
 
-for i in range(len(Pascal)-4):
-    if Pascal[i] == 'a':
-        if Pascal[i+3] == 'b':
-            lst[0] = lst[1]
-        elif Pascal[i+3] == 'c':
-            lst[0] = lst[2]
-        elif Pascal[i+3] == 'a':
-            lst[0] = lst[0]
-    else:
-        lst[0] = Pascal[i+3]
-        print(lst[0])
+for i in statements:
+    if not i.strip():
+        continue
 
-    if  Pascal[i] == 'b':
-        if Pascal[i+3] == 'a':
-            lst[1] = lst[0]
-        elif Pascal[i+3] == 'c':
-            lst[1] = lst[2]
-        elif Pascal[i+3] == 'b':
-            lst[1] = lst[1]
-    else:
-        lst[1] = Pascal[i+3]
+    if ':=' in i:
+        left, right = i.split(':=')
+        left = left.strip()
+        right = right.strip()
 
-    if Pascal[i] == 'c':
-        if Pascal[i+3] == 'a':
-            lst[2] = lst[0]
-        elif Pascal[i+3] == 'b':
-            lst[2] = lst[1]
-        elif Pascal[i+3] == 'c':
-            lst[2] = lst[2]
-    else:
-        lst[2] = Pascal[i+3]
+        if right.isdigit():
+            val = int(right)
+        elif right in ['a', 'b', 'c']:
+            val = eval(right)   # eval() 是 Python 的一个内置函数，用于将字符串当作 Python 代码执行。
+        else:
+            continue
 
-result=' '.join(map(str,lst))
-print(result)
+        if left == 'a':
+            a = val
+        elif left == 'b':
+            b = val
+        elif left == 'c':
+            c = val
 
+print(a, b, c)

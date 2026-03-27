@@ -1,6 +1,7 @@
-import math
+string = list(map(str,input().strip()))
+print(string)
+sum = 0
+lst = []
 
-a = 4
-b = 16
-
-print(math.lcm(a, b))
+print(ord("p"))
+print(ord("z"))
