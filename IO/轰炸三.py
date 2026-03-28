@@ -1,0 +1,49 @@
+"""
+题目背景
+一个大小为 n×m 的城市遭到了 x 次轰炸，每次都炸了一个每条边都与边界平行的矩形。
+题目描述
+在轰炸后，有 y 个关键点，指挥官想知道，它们有没有受到过轰炸，如果有，被炸了几次，最后一次是第几轮。
+输入格式
+第一行共四个整数，分别为 n,m,x,y。
+接下来 x 行，每行四个整数 x1,y1,x2,y2,表示被轰炸的矩形的左上角坐标和右下角坐标（比如 1,3,7,10 就表示被轰炸的地方是从 (1,3) 到 (7,10) 的矩形）。
+接下来 y 行，每行两个整数，表示这个关键点的坐标。
+输出格式
+输出共 y 行，每行第一个字符为 Y 或 N，表示是否被轰炸；若为 Y，在一个空格后为两个整数，表示被炸了几次和最后一次是第几轮。
+
+
+输入
+10 10 2 3
+1 1 5 5
+5 5 10 10
+3 2
+5 5
+7 1
+
+输出
+Y 1 1
+Y 2 2
+N
+"""
+
+n, m, x, y = list(map(int, input().split()))
+
+bomb_areas = []
+for _ in range(x):
+    x1, y1, x2, y2 = list(map(int, input().split()))
+    bomb_areas.append((x1, y1, x2, y2))
+
+for _ in range(y):
+    x_label, y_label = list(map(int, input().split()))
+
+    count = 0
+    last = 0
+
+    for idx, (x1, y1, x2, y2) in enumerate(bomb_areas):
+        if x1 <= x_label <= x2 and y1 <= y_label <= y2:
+            count += 1
+            last = idx + 1
+
+    if count > 0:
+        print(f"Y {count} {last}")
+    else:
+        print("N")
