@@ -9,6 +9,15 @@
 
 输出格式
 输出一行一个整数，表示将这些树都移走后，马路上剩余的树木数量。
+
+输入
+500 3
+150 300
+100 200
+470 471
+
+输出
+298
 """
 
 l, m = map(int, input().split())
@@ -19,6 +28,7 @@ for i in range(m):
     regions.append((u, v))
 
 regions.sort() # 只需依次往后遍历即可
+print(regions)
 
 merged = []
 
@@ -33,6 +43,7 @@ for u, v in regions:
         # 旧区间的最小值不用改，最大值取新旧区间最大的那个
         merged[-1][1] = max(merged[-1][1], v)
 
+print(merged)
 remove = 0
 for u, v in merged:
     remove += v - u + 1

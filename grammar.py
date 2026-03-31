@@ -102,13 +102,30 @@ cleaned = [char.lower() for char in s if char.isalnum()]
 cleaned_str = ''.join(cleaned)
 print(cleaned_str)  # 输出: amanaplanacanalpanama
 
+# 正常写法
+# cleaned = []
+# for char in s:
+#     if char.isalnum():
+#         cleaned.append(char.lower())
+# cleaned_str = ''.join(cleaned)
+
+
+
+
 # 方法2: 使用filter过滤
-cleaned = filter(lambda x: x.isalnum(), s.lower())
+cleaned = filter(lambda x: x.isalnum(), s.lower())   # 会返回一个只包含字母和数字的小写字符的迭代器
 cleaned_str = ''.join(cleaned)
 print(cleaned_str)  # 输出: amanaplanacanalpanama
 
+# 正常写法
+# cleaned = []
+# for char in s.lower():
+#     if char.isalnum():
+#         cleaned.append(char)
+# cleaned_str = ''.join(cleaned)
 
 
+"--------------------------------------------------------------------------------------"
 # 检查回文
 print(cleaned_str == cleaned_str[::-1])  # 输出: True
 
@@ -124,3 +141,73 @@ result = sorted(list)
 # isdigit()检查是否为数字组成
 # islower()检查是否为小写   # 转换大小写为upper()和lower()
 # isupper()检查是否为大写
+
+"----------------------------------------------------------------------------"
+#gcd:最大公约数  lcm:最小公倍数
+from math import gcd,lcm
+# 最小公倍数=两数相乘÷两数的最大公约数
+
+def gcd(a, b):
+    while b != 0:
+        a, b = b, a % b  # 替换 a 和 b，b 变成余数
+    return a  # 当 b 为 0 时，a 就是最大公约数
+
+def lcm(a, b):
+    return abs(a * b) // gcd(a, b)  # 用 GCD 求 LCM
+
+"---------------------------------------------------------------------------------"
+a = 9
+b = 4
+
+result = a % b # 取余
+print(result)  # 输出: 1
+
+result = a / b # 浮点除法
+print(result)  # 输出: 2.25
+
+result = a // b # 整数除法(舍去小数)
+print(result)  # 输出: 2
+
+"----------------------------------------------------------------------------------"
+pairs = [(1, 'apple'), (2, 'banana'), (3, 'cherry')]
+
+# 使用 enumerate 遍历索引和元组中的元素
+for i, (a, b) in enumerate(pairs):
+    print(f"索引 {i}, a: {a}, b: {b}")
+# 索引 0, a: 1, b: apple
+# 索引 1, a: 2, b: banana
+# 索引 2, a: 3, b: cherry
+
+
+
+# 普通列表
+numbers = [1, 2, 3]
+# 正确写法
+for i, a in enumerate(numbers):
+    print(f"索引 {i}, a: {a}")
+# 索引 0, a: 1
+# 索引 1, a: 2
+# 索引 2, a: 3
+
+"----------------------------------------------------------------------------"
+numbers = [1, 2, 3, 4, 5]
+
+# 使用 zip() 来获取相邻元素
+for a, b in zip(numbers, numbers[1:]):
+    print(f"比较 {a} 和 {b}")
+# 比较 1 和 2
+# 比较 2 和 3
+# 比较 3 和 4
+# 比较 4 和 5
+
+"------------------------------------------------------------------------------"
+numbers = [1, 2, 3, 4, 5]
+
+# 使用索引比较相邻元素，最后一个元素和第一个元素也进行比较
+for i in range(len(numbers)):
+    print(f"比较 {numbers[i]} 和 {numbers[(i + 1) % len(numbers)]}")
+# 比较 1 和 2
+# 比较 2 和 3
+# 比较 3 和 4
+# 比较 4 和 5
+# 比较 5 和 1

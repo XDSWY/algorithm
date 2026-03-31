@@ -1,7 +1,6 @@
 """
 129 137
 """
-from IO.数字统计 import count
 
 # M, N = map(int, input().split())
 # nums = [0,0,0,0,0,0,0,0,0,0]
@@ -20,8 +19,8 @@ nums = [0,0,0,0,0,0,0,0,0,0]
 for i in range(M,N+1):
     while i>0:
         digit = i % 10
-        count[digit]+=1
+        nums[digit]+=1
         i//=10
-result=' '.join(map(str,count))
+result=' '.join(map(str,nums))
 print(result)
 
