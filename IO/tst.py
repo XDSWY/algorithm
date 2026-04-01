@@ -1,2 +1,2 @@
-N, k = map(int, input().split())
-print(N,k)
+print(ord("a"))
+print(ord("z"))
