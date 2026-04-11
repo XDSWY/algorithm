@@ -40,7 +40,6 @@ a = list(map(int, input().split()))
 
 visited = [False] * n
 cycles = 0
-
 for i in range(n):
     if not visited[i]:
         cycles += 1
