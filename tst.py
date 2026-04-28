@@ -1,2 +1,2 @@
-for i in range(1,int(3.7)):
-    print(i)
+list = [1, 1, -1, -1, -3]
+print(list.count(1))
